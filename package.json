@@ -1,7 +1,7 @@
 {
-  "name": "",
+  "name": "Future-Africa-Backend",
   "version": "1.0.0-dev",
-  "description": "The backend repo built in nodejs for star wars api",
+  "description": "The backend repo built in nodejs for future-africa-backend",
   "main": "index.js",
   "engines": {
     "node": "14.15.0",
