@@ -18,7 +18,7 @@ class Talk {
     try {
       return await db('conferenceTalk').insert(body, this.getViewableColumnName());
     } catch (error) {
-      logger.error(`${error} - ${error.message}`);
+      // logger.error(`${error} - ${error.message}`);
       return error.message;
     }
   }
