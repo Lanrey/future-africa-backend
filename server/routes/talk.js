@@ -5,4 +5,4 @@ const route = express.Router();
 
 route.post('/add-talk', Talks.addTalk);
 
-export default route
+export default route;

@@ -1,5 +1,5 @@
 import express from 'express';
-import talk from './talk'
+import talk from './talk';
 
 const route = express.Router();
 

@@ -36,7 +36,6 @@ app.use('/api/v1', (request, response) => {
 })
 */
 
-
 app.listen(PORT, () => logger.info(`Server started on port ${PORT}`));
 
 export default app;
