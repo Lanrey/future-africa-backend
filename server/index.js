@@ -2,6 +2,7 @@ import express, { json, urlencoded } from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
 import logger from './helper';
+import routes from './routes';
 
 const PORT = Number(process.env.PORT) || 7000;
 const app = express();
@@ -26,6 +27,9 @@ app.get('/', (request, response) => {
 app.use('*', (request, response) => {
   response.status(404).send('Not Found');
 });
+
+
+app.use('/api/v1', routes);
 
 app.listen(PORT, () => logger.info(`Server started on port ${PORT}`));
 
