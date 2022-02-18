@@ -23,6 +23,27 @@ class Talk {
     }
   }
 
+  /**
+   * @name checkTalkExists
+   * @async
+   * @static
+   * @memberof Talk
+   * @param {Object} body object
+   * @returns {object} existing talk
+   */
+
+  static async checkTalkExists(body) {
+    try {
+
+      const checkedTalk = await db('conferenceTalk').count().where('conference_talk_id', body.talk_id).first();
+      return checkedTalk.count;
+      
+    } catch (error) {
+      logger.error(`${error} - ${error.message}`);
+      return error.message;
+    }
+  }
+
   static getViewableColumnName() {
     return ['conference_talk_id', 'talk_name', 'talk_duration', 'talk_speaker'];
   }

@@ -23,6 +23,17 @@ class Attendee {
     }
   }
 
+  static async createTalk(body) {
+    try {
+
+      const createdTalk = await db('conferenceAttendee').update('attendee_talk', body.talk_id).where('conference_attendee_id', body.attendee_id);
+      return createdTalk
+    } catch (error) {
+      logger.error(`${error} - ${error.message}`);
+      return error.message;
+    }
+  }
+
   static getViewableColumnName() {
     return ['conference_attendee_id', 'attendee_name', 'attendee_email'];
   }
