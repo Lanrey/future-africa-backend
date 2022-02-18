@@ -2,21 +2,21 @@ import db from '../config/knex';
 import { logger } from '../../helper';
 
 /**
- * @class Talk
+ * @class Attendee
  */
-class Talk {
+class Attendee {
   /**
    * @name create
    * @async
    * @static
-   * @memberof Talk
+   * @memberof Attendee
    * @param {Object} body object
-   * @returns {object} created conference talk
+   * @returns {object} created attendee
    */
 
-  static async createTalk(body) {
+  static async createAttendee(body) {
     try {
-      return await db('conferenceTalk').insert(body, this.getViewableColumnName());
+      return await db('conferenceAttendee').insert(body, this.getViewableColumnName());
     } catch (error) {
       logger.error(`${error} - ${error.message}`);
       return error.message;
@@ -24,8 +24,8 @@ class Talk {
   }
 
   static getViewableColumnName() {
-    return ['conference_talk_id', 'talk_name', 'talk_duration', 'talk_speaker'];
+    return ['conference_attendee_id', 'attendee_name', 'attendee_email'];
   }
 }
 
-export default Talk;
+export default Attendee;
