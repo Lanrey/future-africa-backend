@@ -24,12 +24,18 @@ app.get('/', (request, response) => {
   response.status(200).send('Welcome to Future Africa Backend');
 });
 
+app.use('/api/v1', routes);
+
 app.use('*', (request, response) => {
   response.status(404).send('Not Found');
 });
 
+/*
+app.use('/api/v1', (request, response) => {
+  response.status(200).send('Welcome to Future Africa Backend v1');
+})
+*/
 
-app.use('/api/v1', routes);
 
 app.listen(PORT, () => logger.info(`Server started on port ${PORT}`));
 
