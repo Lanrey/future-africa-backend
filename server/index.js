@@ -1,5 +1,3 @@
-
-   
 import express, { json, urlencoded } from 'express';
 import cors from 'cors';
 import morgan from 'morgan';

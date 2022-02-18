@@ -6,7 +6,6 @@ dotenv.config({ path: `${appPath}/.env` });
 
 const env = process.env.NODE_ENV;
 
-
 const knex = require('knex');
 const knexFile = require('./knexfile');
 
