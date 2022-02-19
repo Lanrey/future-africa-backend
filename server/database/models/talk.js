@@ -57,8 +57,7 @@ class Talk {
   static async deleteTalk(id) {
     try {
 
-      const deletedTalk =  await db('conferenceTalk').where('conference_talk_id', id).del();
-      console.log(deletedTalk);
+      return await db('conferenceTalk').where('conference_talk_id', id).del();
     } catch (error) {
       console.log(error);
       logger.error(`${error} - ${error.message}`);
