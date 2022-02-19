@@ -56,6 +56,26 @@ class Talks {
       return serverError(req, res, error);
     }
   }
+
+  /**
+   *
+   * @param {req} req
+   * @param {res} res
+   * @returns {object} delete talk
+   */
+  static async deleteConferenceTalk(req, res) {
+    try {
+
+      const talkID = req.body;
+
+      await Talk.deleteTalk(talkID.talkID);
+
+      return serverResponse(req, res, 200, { data: "Talk deleted successfully"});
+      
+    } catch (error) {
+      return serverError(req, res, error);
+    }
+  }
 }
 
 export default Talks;

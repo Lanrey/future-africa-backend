@@ -17,7 +17,9 @@ exports.up = function (knex) {
       table
         .uuid('attendee_talk')
         .references('conference_talk_id')
-        .inTable('conferenceTalk');
+        .inTable('conferenceTalk')
+        .onDelete('cascade')
+        .onUpdate('cascade');
       table.timestamps(true, true);
     });
 };

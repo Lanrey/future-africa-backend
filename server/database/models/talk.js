@@ -44,6 +44,28 @@ class Talk {
     }
   }
 
+
+   /**
+   * @name deleteTalk
+   * @async
+   * @static
+   * @memberof Talk
+   * @param {Object} body object
+   * @returns {object} delete talk
+   */
+
+  static async deleteTalk(id) {
+    try {
+
+      const deletedTalk =  await db('conferenceTalk').where('conference_talk_id', id).del();
+      console.log(deletedTalk);
+    } catch (error) {
+      console.log(error);
+      logger.error(`${error} - ${error.message}`);
+      return error.message;
+    }
+  }
+
   static getViewableColumnName() {
     return ['conference_talk_id', 'talk_name', 'talk_duration', 'talk_speaker'];
   }
