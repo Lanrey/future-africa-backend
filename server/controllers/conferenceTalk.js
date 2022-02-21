@@ -68,11 +68,14 @@ class Talks {
 
       const talkID = req.body;
 
+      console.log(req.body);
+
       await Talk.deleteTalk(talkID.talkID);
 
       return serverResponse(req, res, 200, { data: "Talk deleted successfully"});
       
     } catch (error) {
+      console.log(error);
       return serverError(req, res, error);
     }
   }
