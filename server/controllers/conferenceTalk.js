@@ -76,6 +76,17 @@ class Talks {
       return serverError(req, res, error);
     }
   }
+
+  static async ListTalks(req, res) {
+    try {
+
+      const allTalks = await Talk.listTalk()
+
+        return serverResponse(req, res, 200, { data: allTalks });
+    } catch (error) {
+      return serverError(req, res, error);
+    }
+  }
 }
 
 export default Talks;

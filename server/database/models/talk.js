@@ -23,6 +23,28 @@ class Talk {
     }
   }
 
+   /**
+   * @name ListTalk
+   * @async
+   * @static
+   * @memberof Talk
+   * @param {Object} body object
+   * @returns {object} List all conference talk
+   */
+
+  static async listTalk() {
+    try {
+
+      const allTalk = await db('conferenceTalk').select();
+
+      return allTalk;
+      
+    } catch (error) {
+      logger.error(`${error} - ${error.message}`);
+      return error.message;
+    }
+  }
+
   /**
    * @name checkTalkExists
    * @async

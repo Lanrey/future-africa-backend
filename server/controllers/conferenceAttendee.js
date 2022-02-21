@@ -25,6 +25,17 @@ class Attendees {
       return serverError(req, res, error);
     }
   }
+
+  static async ListAttendees(req, res) {
+    try {
+
+      const allAttendees = await Attendee.listAttendee()
+
+      return serverResponse(req, res, 200, { data: allAttendees });
+    } catch (error) {
+      return serverError(req, res, error);
+    }
+  }
 }
 
 export default Attendees;

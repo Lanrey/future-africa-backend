@@ -34,6 +34,19 @@ class Attendee {
     }
   }
 
+  static async listAttendee() {
+    try {
+
+      const allAttendee = await db('conferenceAttendee').select();
+
+      return allAttendee;
+      
+    } catch (error) {
+      logger.error(`${error} - ${error.message}`);
+      return error.message;
+    }
+  }
+
   static getViewableColumnName() {
     return ['conference_attendee_id', 'attendee_name', 'attendee_email'];
   }
